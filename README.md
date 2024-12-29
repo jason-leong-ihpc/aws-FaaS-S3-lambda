@@ -55,7 +55,7 @@ The execution role defines the permissions required by the Lambda function to ac
 ```
 The resource-based policy on a Lambda function allows external entities such as S3 or other AWS services to invoke the Lambda function. Basically, it defines who or what can trigger the Lambda function and under what conditions. In this example, the policy allows an S3 bucket (defined by the ARN arn:aws:s3:::${bucket-name}) to invoke the Lambda function.
 ### 3.	If the function is needed to upload a file into an S3 bucket, describe (i.e no need for the actual policies)  
-   -  What is the needed update on the execution role? 
+####   -  What is the needed update on the execution role? 
 ```  
 {  
     "Version": "2012-10-17",  
@@ -83,7 +83,7 @@ The resource-based policy on a Lambda function allows external entities such as 
 }  
 ```  
 For the lambda function to be able to upload a file into an S3 bucket, a policy with appropriate permissions will have to be attached to the role. In the example attached, a policy which allows s3:ListBucket, s3:GetObject and s3:PutObject was attached to the execution role to allow the Lambda function to upload a file into the S3 bucket.
-   -  What is the new resource-based policy that needs to be added? To which resource?
+####   -  What is the new resource-based policy that needs to be added? To which resource?
 No new resource based policy is needed for the Lambda function to be able to create a file into an S3 bucket once the execution role has been updated with the policy with correct permissions as stated earlier. A simple test function can be used to test that the Lambda function is able to create a file into an S3 bucket:  
 ```
 import boto3 
