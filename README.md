@@ -66,7 +66,7 @@ The resource-based policy on a Lambda function allows external entities such as 
                 "s3:ListBucket"  
             ],  
             "Resource": [  
-                "arn:aws:s3:::${bucket-name}"  
+                ${aws_s3_bucket.test_bucket.arn}"  
             ]  
         },  
         {  
@@ -76,7 +76,7 @@ The resource-based policy on a Lambda function allows external entities such as 
                 "s3:GetObject",  
             ],  
             "Resource": [  
-                "arn:aws:s3:::${bucket-name}/*"  
+                "${aws_s3_bucket.test_bucket.arn}/*"  
             ]  
         }  
     ]  
